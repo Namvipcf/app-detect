@@ -1,0 +1,10 @@
+Flask
+gunicorn
+werkzeug
+Pillow
+numpy
+torch
+torchvision
+matplotlib
+pycocotools
+albumentations

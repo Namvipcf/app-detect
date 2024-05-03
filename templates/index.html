@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Vehicle Detection</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="fileInput">Chọn tệp:</label>
+            <input type="file" name="file" id="fileInput" accept=".jpg, .jpeg, .png, .webd" title="Chọn tệp để tải lên">
+            <button type="button" onclick="uploadImage()">Choose</button>
+            <button type="submit" id="detectButton" style="display: none;">Detect</button>
+        </form>
+        <div id="imageContainer" style="display: none;">
+            <img id="uploadedImage" src="" alt="Uploaded Image">
+        </div>
+        <div id="resultContainer" style="display: none;">
+            <h2>Result</h2>
+            <img id="resultImage" src="" alt="Result Image">
+        </div>
+    </div>
+    <script>
+        function uploadImage() {
+            document.getElementById("fileInput").click();
+        }
+
+        document.getElementById("fileInput").addEventListener("change", function() {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("uploadedImage").src = e.target.result;
+                document.getElementById("imageContainer").style.display = "block";
+                document.getElementById("detectButton").style.display = "block";
+            }
+            reader.readAsDataURL(file);
+        });
+
+        function displayResultImage(resultImg) {
+            document.getElementById("resultImage").src = "data:image/png;base64," + resultImg;
+            document.getElementById("resultContainer").style.display = "block";
+        }
+    </script>
+</body>
+</html>
