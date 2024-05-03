@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ebfe098fc003bf55a8db42c079617da0fb047f521ecb8fb5c10c9389cf030edb
-size 101
+Flask
+gunicorn
+werkzeug
+Pillow
+numpy
+torch
+torchvision
+matplotlib
+pycocotools
+albumentations
